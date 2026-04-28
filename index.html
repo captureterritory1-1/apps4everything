@@ -508,7 +508,10 @@
         <div class="app-card-tag" style="margin-top:6px">${a.tag}</div>
       </div>
       <div class="app-card-desc">${a.short}</div>
-      <span class="pill" style="align-self:flex-start"><span class="pill-dot"></span>live</span>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;align-self:flex-start">
+        <span class="pill"><span class="pill-dot"></span>live</span>
+        ${a.appstore !== '#' ? `<a href="${a.appstore}" class="pill pill-dl" target="_blank" rel="noopener" onclick="event.stopPropagation()">↓ download</a>` : ''}
+      </div>
     </a>
   `).join('');
 })();

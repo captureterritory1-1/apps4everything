@@ -203,6 +203,8 @@ em {
   color: var(--bg);
 }
 .pill.outline { background: transparent; color: var(--fg); border: 1.5px solid var(--fg); }
+.pill.pill-dl { background: var(--hl); color: #0F1418; pointer-events: auto; opacity: 1; }
+.pill.pill-dl:hover { background: var(--fg); color: var(--bg); }
 .pill .pill-dot {
   width: 6px; height: 6px; border-radius: 50%; background: #16a34a;
   animation: pulse 1.5s ease-in-out infinite;

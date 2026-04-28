@@ -59,7 +59,7 @@ window.APPS = [
     num: '01', name: 'capture.territory', tag: 'fitness · gamified',
     logo: 'assets/logos/capture-logo.png',
     status: 'live',
-    body: 'A gamified running app. Run to capture territories, unlock brand deals, freebies & discounts — and steal someone else\u2019s turf if you\u2019re fast enough.',
+    body: 'A gamified running app. Run to capture territories, unlock brand deals, freebies & discounts — and steal someone else’s turf if you’re fast enough.',
     short: 'Run. Claim turf. Earn rewards.',
     accent: ['run', 'claim', 'earn'],
     stack: ['React Native', 'Mapbox', 'Postgres'],
@@ -70,12 +70,12 @@ window.APPS = [
     num: '02', name: 'the.pantry', tag: 'kitchen · ai',
     logo: 'assets/logos/pantry-logo.png',
     status: 'live',
-    body: 'Track what\u2019s in your kitchen without thinking. Know what you have, what\u2019s expiring, and what to buy next — auto-synced.',
+    body: 'Track what’s in your kitchen without thinking. Know what you have, what’s expiring, and what to buy next — auto-synced.',
     short: 'Your kitchen, but it remembers.',
     accent: ['stock', 'expiry', 'restock'],
     stack: ['Swift', 'Vision OCR', 'CloudKit'],
     url: '#',
-    appstore: '#', playstore: '#',
+    appstore: 'https://apps.apple.com/in/app/the-pantry/id6761057466', playstore: '#',
   },
   {
     num: '03', name: 'cashflow', tag: 'finance · split-pay',
@@ -86,7 +86,7 @@ window.APPS = [
     accent: ['track', 'split', 'settle'],
     stack: ['Flutter', 'Plaid', 'Firebase'],
     url: '#',
-    appstore: '#', playstore: '#',
+    appstore: 'https://apps.apple.com/in/app/cashflow-1-0/id6761311662', playstore: '#',
   },
   {
     num: '04', name: 'yeni', tag: 'learning · daily',
@@ -97,7 +97,7 @@ window.APPS = [
     accent: ['daily', 'tiny', 'compound'],
     stack: ['Next.js', 'OpenAI', 'Supabase'],
     url: '#',
-    appstore: '#', playstore: '#',
+    appstore: 'https://apps.apple.com/in/app/yeni-something-new-everyday/id6761651271', playstore: '#',
   },
   {
     num: '05', name: 'jain.dham', tag: 'spiritual · ai',
@@ -108,7 +108,7 @@ window.APPS = [
     accent: ['darshan', 'pray', 'discover'],
     stack: ['React Native', 'GPT-4', 'Mapbox'],
     url: '#',
-    appstore: '#', playstore: '#',
+    appstore: 'https://apps.apple.com/in/app/jaindham/id6762510686', playstore: '#',
   },
 ];
 
@@ -119,5 +119,5 @@ window.LOG_ENTRIES = [
   { day: 'D06', date: '2026-04-21', title: 'cashflow — split-pay shipped', body: 'Plaid integration was the hard part. Splits settle in under 2s. Tested with a 14-person Goa trip. Survived.', tags: ['ship', 'fintech'] },
   { day: 'D04', date: '2026-04-19', title: 'the.pantry — receipt OCR works', body: 'Vision framework reads grocery receipts in <800ms. Auto-categorises 89% of items correctly. The 11% is mostly mangoes.', tags: ['build', 'ai'] },
   { day: 'D02', date: '2026-04-17', title: 'capture.territory — first run claimed', body: 'Closed-loop GPS detection for "captured" territory shapes. Field-tested in Cubbon Park. Lost the first race to a guy on a scooter.', tags: ['build', 'maps'] },
-  { day: 'D01', date: '2026-04-16', title: 'apps for everything — kicking off', body: 'The premise: 5 apps, 10 days, all real, all shipped. No prototypes, no \u201Ccoming soon.\u201D If it\u2019s on the site, it\u2019s in your pocket.', tags: ['note', 'kickoff'] },
+  { day: 'D01', date: '2026-04-16', title: 'apps for everything — kicking off', body: 'The premise: 5 apps, 10 days, all real, all shipped. No prototypes, no “ccoming soon.” If it’s on the site, it’s in your pocket.', tags: ['note', 'kickoff'] },
 ];
