@@ -57,6 +57,7 @@ window.countUp = countUp;
 window.APPS = [
   {
     num: '01', name: 'capture.territory', tag: 'fitness · gamified',
+    logo: 'assets/logos/capture-logo.png',
     status: 'live',
     body: 'A gamified running app. Run to capture territories, unlock brand deals, freebies & discounts — and steal someone else\u2019s turf if you\u2019re fast enough.',
     short: 'Run. Claim turf. Earn rewards.',
@@ -67,6 +68,7 @@ window.APPS = [
   },
   {
     num: '02', name: 'the.pantry', tag: 'kitchen · ai',
+    logo: 'assets/logos/pantry-logo.png',
     status: 'live',
     body: 'Track what\u2019s in your kitchen without thinking. Know what you have, what\u2019s expiring, and what to buy next — auto-synced.',
     short: 'Your kitchen, but it remembers.',
@@ -77,6 +79,7 @@ window.APPS = [
   },
   {
     num: '03', name: 'cashflow', tag: 'finance · split-pay',
+    logo: 'assets/logos/cashflow-logo.png',
     status: 'live',
     body: 'Track expenses & income — and split money for group plans without the usual mess of receipts and chase-up reminders.',
     short: 'Money in. Money out. Money split.',
@@ -87,6 +90,7 @@ window.APPS = [
   },
   {
     num: '04', name: 'yeni', tag: 'learning · daily',
+    logo: 'assets/logos/yeni-logo.png',
     status: 'live',
     body: 'One new thing every day. Quick, easy, no overwhelm — a small habit engineered to compound into something real.',
     short: 'One new thing. Every day.',
@@ -97,6 +101,7 @@ window.APPS = [
   },
   {
     num: '05', name: 'jain.dham', tag: 'spiritual · ai',
+    logo: 'assets/logos/jaindham-logo.png',
     status: 'live',
     body: 'Jain temples worldwide, live darshan, daily prayers and events — plus instant guidance from an AI Jain assistant.',
     short: 'Temples, prayers, an AI guide.',
