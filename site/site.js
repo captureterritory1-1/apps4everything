@@ -64,7 +64,7 @@ window.APPS = [
     accent: ['run', 'claim', 'earn'],
     stack: ['React Native', 'Mapbox', 'Postgres'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/capture-territory/id6760887152', playstore: '#',
+    appstore: 'https://apps.apple.com/in/app/capture-territory/id6760887152',
   },
   {
     num: '02', name: 'the.pantry', tag: 'kitchen · ai',
@@ -75,8 +75,7 @@ window.APPS = [
     accent: ['stock', 'expiry', 'restock'],
     stack: ['Swift', 'Vision OCR', 'CloudKit'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/the-pantry/id6761057466', playstore: '#',
-  },
+    appstore: 'https://apps.apple.com/in/app/the-pantry/id6761057466',  },
   {
     num: '03', name: 'cashflow', tag: 'finance · split-pay',
     logo: 'assets/logos/cashflow-logo.png',
@@ -86,8 +85,7 @@ window.APPS = [
     accent: ['track', 'split', 'settle'],
     stack: ['Flutter', 'Plaid', 'Firebase'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/cashflow-1-0/id6761311662', playstore: '#',
-  },
+    appstore: 'https://apps.apple.com/in/app/cashflow-1-0/id6761311662',  },
   {
     num: '04', name: 'yeni', tag: 'learning · daily',
     logo: 'assets/logos/yeni-logo.png',
@@ -97,8 +95,7 @@ window.APPS = [
     accent: ['daily', 'tiny', 'compound'],
     stack: ['Next.js', 'OpenAI', 'Supabase'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/yeni-something-new-everyday/id6761651271', playstore: '#',
-  },
+    appstore: 'https://apps.apple.com/in/app/yeni-something-new-everyday/id6761651271',  },
   {
     num: '05', name: 'jain.dham', tag: 'spiritual · ai',
     logo: 'assets/logos/jaindham-logo.png',
@@ -108,8 +105,7 @@ window.APPS = [
     accent: ['darshan', 'pray', 'discover'],
     stack: ['React Native', 'GPT-4', 'Mapbox'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/jaindham/id6762510686', playstore: '#',
-  },
+    appstore: 'https://apps.apple.com/in/app/jaindham/id6762510686',  },
 ];
 
 // Builder log entries (shared)
