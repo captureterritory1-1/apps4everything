@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>404 — apps for everything</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="site/site.css"/>
+<style>
+.not-found {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 32px;
+  gap: 24px;
+}
+.not-found .code {
+  font-family: var(--display);
+  font-size: clamp(120px, 25vw, 320px);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+.not-found .code em {
+  background: var(--hl);
+  color: #0F1418;
+  padding: 0 0.08em;
+}
+.not-found .msg {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  max-width: 36ch;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span class="dot"></span>
+    apps for everything<span class="blink"></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="apps.html">Apps</a>
+    <a class="nav-link" href="log.html">Log</a>
+  </div>
+  <div class="nav-meta">
+    <span><span class="live-dot"></span>shipping</span>
+    <span data-utc-clock>00:00:00 UTC</span>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="not-found">
+    <div class="code"><em>404</em></div>
+    <p class="msg">// this page doesn't exist yet.<br/>everything else does.</p>
+    <a href="index.html" class="btn primary">← back home</a>
+  </div>
+</main>
+
+<script src="site/site.js"></script>
+</body>
+</html>

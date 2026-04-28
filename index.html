@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>apps for everything — a small studio shipping a lot</title>
+<meta name="description" content="A one-person studio shipping small, useful apps — fast. 5 apps live. No waitlists, no subscriptions, no coming-soon screens."/>
+<meta property="og:title" content="apps for everything"/>
+<meta property="og:description" content="A one-person studio shipping small, useful apps — fast. 5 apps live."/>
+<meta property="og:url" content="https://appsforeverything.co"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://appsforeverything.co/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="apps for everything"/>
+<meta name="twitter:description" content="A one-person studio shipping small, useful apps — fast. 5 apps live."/>
+<meta name="twitter:image" content="https://appsforeverything.co/og-image.png"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="site/site.css"/>
+
+<style>
+/* ── Home-only styles ─────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 60px);
+  padding: 80px 32px 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-meta-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  font-family: var(--mono);
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.hero-meta-row .col { display: flex; flex-direction: column; gap: 4px; }
+.hero-meta-row .col .v { color: var(--fg); font-weight: 700; }
+
+.hero-stack {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(96px, 19vw, 320px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  margin: 40px 0;
+  position: relative;
+}
+.hero-line { display: block; overflow: hidden; }
+.hero-word {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: rise 0.9s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.hero-word.d2 { animation-delay: 0.1s; }
+.hero-word.d3 { animation-delay: 0.2s; }
+.hero-word.d4 { animation-delay: 0.3s; }
+.hero-word.d5 { animation-delay: 0.4s; }
+@keyframes rise { to { transform: translateY(0) } }
+
+.hero-line .swap {
+  display: inline-block;
+  background: var(--hl); color: #0F1418;
+  padding: 0 0.12em;
+  position: relative;
+}
+.hero-line .swap .swap-inner {
+  display: inline-block;
+  animation: swap 8s steps(1) infinite;
+}
+@keyframes swap {
+  0%, 24%   { content: 'everything' }
+  25%, 49%  { transform: translateY(0) }
+  50%, 74%  { transform: translateY(0) }
+}
+
+/* word cycler for hero */
+.cycle {
+  display: inline-block;
+  background: var(--hl); color: #0F1418;
+  padding: 0 0.18em;
+  position: relative;
+  vertical-align: baseline;
+  overflow: hidden;
+}
+.cycle .cycle-track {
+  display: inline-block;
+}
+.cycle .cycle-word {
+  display: inline-block;
+}
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  align-items: end;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.hero-bottom .col h5 {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  opacity: 0.5; margin-bottom: 10px; font-weight: 500;
+}
+.hero-bottom .col p { max-width: 36ch; }
+.hero-bottom .ctas { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* Animated grid (subtle dot drift) */
+.hero-bg {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, var(--fg) 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  background-position: 0 0;
+  opacity: 0.08;
+  animation: drift 30s linear infinite;
+}
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 320px 320px; }
+}
+
+/* ── Counters strip ───────────────────────────────────── */
+.counters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1.5px solid var(--fg);
+  border-bottom: 1.5px solid var(--fg);
+  background: var(--bg);
+}
+.counter {
+  padding: 28px 24px;
+  border-right: 1.5px solid var(--fg);
+  font-family: var(--mono);
+}
+.counter:last-child { border-right: none; }
+.counter .label {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0.55; margin-bottom: 12px;
+}
+.counter .num {
+  font-family: var(--display);
+  font-size: 84px; line-height: 1; font-weight: 900;
+  letter-spacing: -0.04em;
+}
+.counter .sub {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  margin-top: 8px; opacity: 0.7;
+}
+
+/* ── Apps preview grid ────────────────────────────────── */
+.apps-section {
+  padding: 80px 32px;
+  border-top: 1.5px solid var(--fg);
+}
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1.5px solid var(--fg);
+}
+.app-card {
+  position: relative;
+  border-right: 1.5px solid var(--fg);
+  padding: 24px;
+  display: flex; flex-direction: column; gap: 18px;
+  min-height: 380px;
+  background: var(--bg);
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.app-card:last-child { border-right: none; }
+.app-card:hover { background: var(--fg); color: var(--bg); }
+.app-card:hover .logo-slot { background: var(--fg); color: var(--bg); border-color: var(--bg); }
+.app-card:hover .logo-slot .tick { background: var(--fg); border-color: var(--bg); }
+.app-card:hover .pill { background: var(--bg); color: var(--fg); }
+.app-card:hover .app-card-num::after {
+  width: 100%;
+}
+.app-card-num {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.2em; opacity: 0.5;
+  position: relative;
+  display: inline-block;
+}
+.app-card-num::after {
+  content: '';
+  display: block;
+  width: 24px; height: 1.5px;
+  background: currentColor;
+  margin-top: 8px;
+  transition: width 0.4s cubic-bezier(.2,.7,.2,1);
+}
+.app-card-name {
+  font-family: var(--display);
+  font-size: 38px; font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  word-break: break-word;
+}
+.app-card-tag {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.app-card-desc {
+  font-family: var(--mono);
+  font-size: 12px; line-height: 1.55;
+  margin-top: auto;
+}
+.app-card .logo-slot {
+  width: 80px; height: 80px;
+  align-self: flex-start;
+}
+
+@media (max-width: 1100px) {
+  .apps-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-card { border-bottom: 1.5px solid var(--fg); }
+}
+
+/* ── Log preview ──────────────────────────────────────── */
+.log-section {
+  padding: 80px 32px;
+  border-top: 1.5px solid var(--fg);
+}
+.log-list {
+  border: 1.5px solid var(--fg);
+}
+.log-row {
+  display: grid;
+  grid-template-columns: 80px 130px 1fr 200px;
+  gap: 24px;
+  padding: 22px 24px;
+  border-bottom: 1.5px solid var(--fg);
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.log-row:last-child { border-bottom: none; }
+.log-row:hover { background: var(--fg); color: var(--bg); }
+.log-row .day {
+  font-family: var(--display);
+  font-size: 28px; font-weight: 900;
+  letter-spacing: -0.03em;
+}
+.log-row .date { opacity: 0.55; font-size: 11px; letter-spacing: 0.14em; }
+.log-row .title { font-weight: 500; font-size: 14px; }
+.log-row .arrow {
+  text-align: right; opacity: 0.4;
+  letter-spacing: 0.18em; font-size: 11px;
+}
+.log-row:hover .arrow { opacity: 1; }
+
+/* ── CTA strip ────────────────────────────────────────── */
+.cta-strip {
+  border-top: 1.5px solid var(--fg);
+  padding: 80px 32px;
+  text-align: center;
+  background: var(--fg);
+  color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.cta-strip h2 {
+  font-family: var(--display);
+  font-size: clamp(56px, 9vw, 144px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+.cta-strip h2 em {
+  background: var(--hl); color: #0F1418;
+}
+.cta-strip .sub {
+  margin-top: 24px;
+  font-family: var(--mono); font-size: 14px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.7;
+}
+.cta-strip .ctas {
+  margin-top: 36px;
+  display: flex; gap: 12px; justify-content: center;
+}
+.cta-strip .btn {
+  background: transparent; color: var(--bg); border-color: var(--bg);
+}
+.cta-strip .btn:hover { background: var(--hl); color: #0F1418; border-color: var(--hl); }
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────── -->
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span class="dot"></span>
+    apps for everything<span class="blink"></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link active" href="index.html">Home</a>
+    <a class="nav-link" href="apps.html">Apps</a>
+    <a class="nav-link" href="log.html">Log</a>
+  </div>
+  <div class="nav-meta">
+    <span><span class="live-dot"></span>shipping</span>
+    <span data-utc-clock>00:00:00 UTC</span>
+  </div>
+</nav>
+
+<main class="page">
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-meta-row">
+      <div class="col">
+        <span>// studio</span>
+        <span class="v">apps for everything</span>
+      </div>
+      <div class="col" style="text-align:center">
+        <span>// based</span>
+        <span class="v">internet · earth</span>
+      </div>
+      <div class="col" style="text-align:right">
+        <span>// status</span>
+        <span class="v">accepting nothing, shipping anyway</span>
+      </div>
+    </div>
+
+    <h1 class="hero-stack">
+      <span class="hero-line"><span class="hero-word" style="font-family: &quot;JetBrains Mono&quot;">apps for</span></span>
+      <span class="hero-line"><span class="hero-word d2"><span id="cycle-word" class="cycle"><span class="cycle-track"><span class="cycle-word" style="font-family: &quot;JetBrains Mono&quot;">running</span></span></span>.</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div class="col">
+        <h5>// what we do</h5>
+        <p>A one-person studio shipping small, useful apps — fast. Five live in your pocket. Each one solves one specific thing. None of them ask you to subscribe.</p>
+      </div>
+      <div class="col">
+        <h5>// the rule</h5>
+        <p>If it ships, it goes on the site. No "coming soon." No waitlists. No mock screens with fake notifications.</p>
+      </div>
+      <div class="col">
+        <div class="ctas">
+          <a href="apps.html" class="btn primary">Browse the apps →</a>
+          <a href="log.html" class="btn">Read the log</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ──────────────────────────────────────── -->
+  <div class="marquee invert">
+    <div class="marquee-track">
+      <span class="marquee-item">5 apps shipped <span class="x">×</span></span>
+      <span class="marquee-item">10 days <span class="x">×</span></span>
+      <span class="marquee-item">0 frameworks worshipped <span class="x">×</span></span>
+      <span class="marquee-item">∞ coffee <span class="x">×</span></span>
+      <span class="marquee-item"><span class="star">★</span> appsforeverything.co <span class="x">×</span></span>
+      <span class="marquee-item">5 apps shipped <span class="x">×</span></span>
+      <span class="marquee-item">10 days <span class="x">×</span></span>
+      <span class="marquee-item">0 frameworks worshipped <span class="x">×</span></span>
+      <span class="marquee-item">∞ coffee <span class="x">×</span></span>
+      <span class="marquee-item"><span class="star">★</span> appsforeverything.co <span class="x">×</span></span>
+      <span class="marquee-item">5 apps shipped <span class="x">×</span></span>
+      <span class="marquee-item">10 days <span class="x">×</span></span>
+      <span class="marquee-item">0 frameworks worshipped <span class="x">×</span></span>
+      <span class="marquee-item">∞ coffee <span class="x">×</span></span>
+      <span class="marquee-item"><span class="star">★</span> appsforeverything.co <span class="x">×</span></span>
+    </div>
+  </div>
+
+  <!-- ── COUNTERS ─────────────────────────────────────── -->
+  <div class="counters reveal">
+    <div class="counter">
+      <div class="label">// apps shipped</div>
+      <div class="num" data-count="5">0</div>
+      <div class="sub">live in stores</div>
+    </div>
+    <div class="counter">
+      <div class="label">// days to ship</div>
+      <div class="num" data-count="10">0</div>
+      <div class="sub">first commit → last launch</div>
+    </div>
+    <div class="counter">
+      <div class="label">// people on the team</div>
+      <div class="num" data-count="1">0</div>
+      <div class="sub">+ a lot of caffeine</div>
+    </div>
+    <div class="counter">
+      <div class="label">// venture funding</div>
+      <div class="num" data-count="0">0</div>
+      <div class="sub">and zero plans to raise</div>
+    </div>
+  </div>
+
+  <!-- ── APPS SECTION ─────────────────────────────────── -->
+  <section class="apps-section">
+    <div class="section-label reveal">
+      <span>// the apps</span>
+      <span class="line"></span>
+      <span>5 of 5 live</span>
+    </div>
+
+    <div class="apps-grid reveal" id="apps-grid"></div>
+
+    <div style="margin-top: 32px; display: flex; justify-content: flex-end;">
+      <a href="apps.html" class="btn">See full app pages →</a>
+    </div>
+  </section>
+
+  <!-- ── REVERSE MARQUEE ──────────────────────────────── -->
+  <div class="marquee">
+    <div class="marquee-track reverse fast">
+      <span class="marquee-item">capture.territory <span class="x">·</span></span>
+      <span class="marquee-item">the.pantry <span class="x">·</span></span>
+      <span class="marquee-item">cashflow <span class="x">·</span></span>
+      <span class="marquee-item">yeni <span class="x">·</span></span>
+      <span class="marquee-item">jain.dham <span class="x">·</span></span>
+      <span class="marquee-item">capture.territory <span class="x">·</span></span>
+      <span class="marquee-item">the.pantry <span class="x">·</span></span>
+      <span class="marquee-item">cashflow <span class="x">·</span></span>
+      <span class="marquee-item">yeni <span class="x">·</span></span>
+      <span class="marquee-item">jain.dham <span class="x">·</span></span>
+      <span class="marquee-item">capture.territory <span class="x">·</span></span>
+      <span class="marquee-item">the.pantry <span class="x">·</span></span>
+      <span class="marquee-item">cashflow <span class="x">·</span></span>
+      <span class="marquee-item">yeni <span class="x">·</span></span>
+      <span class="marquee-item">jain.dham <span class="x">·</span></span>
+    </div>
+  </div>
+
+  <!-- ── LOG PREVIEW ──────────────────────────────────── -->
+  <section class="log-section">
+    <div class="section-label reveal">
+      <span>// the builder log</span>
+      <span class="line"></span>
+      <span>latest 4</span>
+    </div>
+
+    <div class="log-list reveal" id="log-list"></div>
+
+    <div style="margin-top: 32px; display: flex; justify-content: flex-end;">
+      <a href="log.html" class="btn">Read the full log →</a>
+    </div>
+  </section>
+
+  <!-- ── CTA STRIP ────────────────────────────────────── -->
+  <section class="cta-strip">
+    <h2 style="font-family: ui-monospace">get the <em style="font-family: &quot;JetBrains Mono&quot;">apps</em>.</h2>
+    <div class="sub">they're free · they're real · they're already on the store</div>
+    <div class="ctas">
+      <a href="apps.html" class="btn">App Store</a>
+      <a href="apps.html" class="btn">Play Store</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────── -->
+  <footer class="foot">
+    <div class="foot-col">
+      <h4>// studio</h4>
+      <a href="index.html">Home</a>
+      <a href="apps.html">Apps</a>
+      <a href="log.html">Builder log</a>
+    </div>
+    <div class="foot-col">
+      <h4>// follow</h4>
+      <a href="https://www.instagram.com/apps4everything?igsh=eWd5OXFvZ3lxbHJh" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="#">X / twitter ↗</a>
+      <a href="#">RSS ↗</a>
+    </div>
+    <div class="foot-col" style="text-align:right">
+      <h4>// contact</h4>
+      <a href="mailto:hi@appsforeverything.co">hi@appsforeverything.co</a>
+      <span style="opacity:0.5">© 2026 — apps for everything</span>
+    </div>
+  </footer>
+</main>
+
+<script src="site/site.js"></script>
+<script>
+// ── Render apps grid ───────────────────────────────────
+(function () {
+  const el = document.getElementById('apps-grid');
+  el.innerHTML = APPS.map((a, i) => `
+    <a href="apps.html#${a.name}" class="app-card">
+      <span class="app-card-num">${a.num}</span>
+      <div class="logo-slot">
+        <span class="tick tl"></span><span class="tick tr"></span>
+        <span class="tick bl"></span><span class="tick br"></span>
+        <div class="logo-inner">
+          <div class="logo-tag">&lt;LOGO/&gt;</div>
+        </div>
+      </div>
+      <div>
+        <div class="app-card-name">${a.name}</div>
+        <div class="app-card-tag" style="margin-top:6px">${a.tag}</div>
+      </div>
+      <div class="app-card-desc">${a.short}</div>
+      <span class="pill" style="align-self:flex-start"><span class="pill-dot"></span>live</span>
+    </a>
+  `).join('');
+})();
+
+// ── Render log preview ────────────────────────────────
+(function () {
+  const el = document.getElementById('log-list');
+  el.innerHTML = LOG_ENTRIES.slice(0, 4).map((e) => `
+    <a href="log.html" class="log-row">
+      <span class="day">${e.day}</span>
+      <span class="date">${e.date}</span>
+      <span class="title">${e.title}</span>
+      <span class="arrow">read →</span>
+    </a>
+  `).join('');
+})();
+
+// ── Counters animate when in view ─────────────────────
+(function () {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-count]').forEach((n) => {
+          const target = parseInt(n.getAttribute('data-count'), 10);
+          countUp(n, target, 1400);
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.counters').forEach((el) => obs.observe(el));
+})();
+
+// ── Hero word cycler ──────────────────────────────────
+(function () {
+  const words = ['running', 'pantries', 'splitting', 'praying', 'learning'];
+  const el = document.querySelector('#cycle-word .cycle-word');
+  if (!el) return;
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % words.length;
+    el.style.transition = 'opacity 0.2s, transform 0.2s';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-8px)';
+    setTimeout(() => {
+      el.textContent = words[i];
+      el.style.transform = 'translateY(8px)';
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }, 220);
+  }, 1800);
+})();
+
+</script>
+</body>
+</html>

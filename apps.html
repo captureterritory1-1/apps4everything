@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>apps · apps for everything</title>
+<meta name="description" content="Five real apps — shipped, in your pocket. No waitlists, no subscriptions. Download direct from the App Store or Play Store."/>
+<meta property="og:title" content="apps · apps for everything"/>
+<meta property="og:description" content="Five real apps — shipped, in your pocket. No waitlists, no subscriptions."/>
+<meta property="og:url" content="https://appsforeverything.co/apps"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://appsforeverything.co/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="apps · apps for everything"/>
+<meta name="twitter:description" content="Five real apps — shipped, in your pocket. No waitlists, no subscriptions."/>
+<meta name="twitter:image" content="https://appsforeverything.co/og-image.png"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="site/site.css"/>
+
+<style>
+.apps-hero {
+  padding: 100px 32px 40px;
+  border-bottom: 1.5px solid var(--fg);
+}
+.apps-hero h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(72px, 14vw, 220px);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+}
+.apps-hero h1 em { font-style: normal; background: var(--hl); color: #0F1418; padding: 0 0.08em; }
+.apps-hero .meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.apps-hero .meta .v {
+  display: block;
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-top: 8px;
+  text-transform: none;
+}
+
+.app-row {
+  border-bottom: 1.5px solid var(--fg);
+  padding: 80px 32px;
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  gap: 48px;
+  align-items: start;
+  position: relative;
+}
+.app-row:nth-child(even) {
+  background: var(--fg);
+  color: var(--bg);
+}
+.app-row:nth-child(even) .logo-slot {
+  background: var(--fg); color: var(--bg); border-color: var(--bg);
+}
+.app-row:nth-child(even) .logo-slot .tick {
+  background: var(--fg); border-color: var(--bg);
+}
+.app-row:nth-child(even) .pill { background: var(--bg); color: var(--fg); }
+.app-row:nth-child(even) .btn { background: transparent; color: var(--bg); border-color: var(--bg); }
+.app-row:nth-child(even) .btn:hover { background: var(--hl); color: #0F1418; border-color: var(--hl); }
+.app-row:nth-child(even) .readme { border-color: var(--bg); }
+.app-row:nth-child(even) .readme-head { border-color: var(--bg); }
+.app-row:nth-child(even) .tag-chip { border-color: var(--bg); }
+
+.app-row .col-left {
+  display: flex; flex-direction: column; gap: 20px;
+  position: sticky; top: 80px;
+}
+.app-row .logo-slot {
+  width: 220px; height: 220px;
+}
+.app-row .logo-slot .logo-tag { font-size: 11px; }
+.app-row .logo-slot .logo-name { font-size: 22px; margin-top: 8px; }
+.app-row .col-left .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+.app-row .col-left .name {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  word-break: break-word;
+}
+.app-row .col-left .tagline {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.app-row .col-mid .short {
+  font-family: var(--display);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+}
+.readme {
+  border: 1.5px solid var(--fg);
+}
+.readme-head {
+  display: flex; justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1.5px solid var(--fg);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.readme-body {
+  padding: 28px;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.readme-body .h {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 10px;
+}
+.readme-body .h:not(:first-child) { margin-top: 24px; }
+
+.tag-row {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 24px;
+}
+.tag-chip {
+  border: 1.5px solid var(--fg);
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.app-row .col-right {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.app-row .col-right .ctas {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.app-row .col-right .device {
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  border: 1.5px solid currentColor;
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  margin-bottom: 14px;
+}
+.app-row:nth-child(even) .col-right .device { background: var(--fg); color: var(--bg); border-color: var(--bg); }
+
+.device .notch {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 22px; border-radius: 12px;
+  background: currentColor;
+  opacity: 0.85;
+}
+.device .screen-tag {
+  position: absolute; bottom: 12px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+.device .stripes {
+  position: absolute; inset: 50px 14px 30px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    currentColor 0,
+    currentColor 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  opacity: 0.18;
+  border-radius: 12px;
+}
+.device .badge-app {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-align: center;
+  line-height: 1;
+  padding: 10px 14px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1.5px solid currentColor;
+  max-width: 80%;
+  word-break: break-word;
+}
+.app-row:nth-child(even) .device .badge-app { background: var(--fg); color: var(--bg); }
+
+.legend-row {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-top: 8px;
+  border-top: 1px solid currentColor;
+  opacity: 0.65;
+}
+
+@media (max-width: 1100px) {
+  .app-row { grid-template-columns: 1fr; gap: 32px; }
+  .app-row .col-left { position: static; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span class="dot"></span>
+    apps for everything<span class="blink"></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link active" href="apps.html">Apps</a>
+    <a class="nav-link" href="log.html">Log</a>
+  </div>
+  <div class="nav-meta">
+    <span><span class="live-dot"></span>shipping</span>
+    <span data-utc-clock>00:00:00 UTC</span>
+  </div>
+</nav>
+
+<main class="page">
+
+  <section class="apps-hero">
+    <h1 style="font-family: 'JetBrains Mono'">five <em>real</em> apps.<br/>shipped, in your pocket.</h1>
+    <div class="meta">
+      <div>// total <span class="v">5</span></div>
+      <div>// live <span class="v">5</span></div>
+      <div>// teasers <span class="v">0</span></div>
+      <div>// avg ship time <span class="v">2d</span></div>
+    </div>
+  </section>
+
+  <div id="app-rows"></div>
+
+  <div class="marquee invert">
+    <div class="marquee-track">
+      <span class="marquee-item">all five apps · free to try · no waitlist · no subscription · download direct ·</span>
+      <span class="marquee-item">all five apps · free to try · no waitlist · no subscription · download direct ·</span>
+      <span class="marquee-item">all five apps · free to try · no waitlist · no subscription · download direct ·</span>
+      <span class="marquee-item">all five apps · free to try · no waitlist · no subscription · download direct ·</span>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="foot-col">
+      <h4>// studio</h4>
+      <a href="index.html">Home</a>
+      <a href="apps.html">Apps</a>
+      <a href="log.html">Builder log</a>
+    </div>
+    <div class="foot-col">
+      <h4>// follow</h4>
+      <a href="https://www.instagram.com/apps4everything?igsh=eWd5OXFvZ3lxbHJh" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="#">X / twitter ↗</a>
+      <a href="#">RSS ↗</a>
+    </div>
+    <div class="foot-col" style="text-align:right">
+      <h4>// contact</h4>
+      <a href="mailto:hi@appsforeverything.co">hi@appsforeverything.co</a>
+      <span style="opacity:0.5">© 2026 — apps for everything</span>
+    </div>
+  </footer>
+</main>
+
+<script src="site/site.js"></script>
+<script>
+(function () {
+  const el = document.getElementById('app-rows');
+  el.innerHTML = APPS.map((a, i) => `
+    <section class="app-row" id="${a.name}">
+      <div class="col-left">
+        <span class="num">// ${a.num} of 05</span>
+        <div class="logo-slot">
+          <span class="tick tl"></span><span class="tick tr"></span>
+          <span class="tick bl"></span><span class="tick br"></span>
+          <div class="logo-inner">
+            <div class="logo-tag">&lt;LOGO/&gt;</div>
+            <div class="logo-name">${a.name.split('.')[0]}</div>
+          </div>
+        </div>
+        <div class="name">${a.name}</div>
+        <div class="tagline">${a.tag}</div>
+        <span class="pill"><span class="pill-dot"></span>live · ${a.status}</span>
+      </div>
+
+      <div class="col-mid">
+        <div class="short">${a.short}</div>
+        <div class="readme">
+          <div class="readme-head">
+            <span>readme.md</span>
+            <span style="opacity:0.55">${a.num} / 05</span>
+          </div>
+          <div class="readme-body">
+            <div class="h"># what it does</div>
+            <p>${a.body}</p>
+            <div class="h"># stack</div>
+            <p>${a.stack.join(' · ')}</p>
+            <div class="h"># pricing</div>
+            <p>Free. No subscription. No upsell. Pay-once unlocks for power features.</p>
+          </div>
+        </div>
+        <div class="tag-row">
+          ${a.accent.map(t => `<span class="tag-chip">${t}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="col-right">
+        <div class="device">
+          <span class="notch"></span>
+          <span class="stripes"></span>
+          <span class="badge-app">${a.name}</span>
+          <span class="screen-tag">// app preview</span>
+        </div>
+        <div class="ctas">
+          <a href="${a.appstore}" class="btn primary">↓ App Store</a>
+          <a href="${a.playstore}" class="btn">↓ Play Store</a>
+          <a href="${a.url}" class="btn">visit site →</a>
+        </div>
+        <div class="legend-row">
+          <span>v.1.0</span>
+          <span>${a.num}/05</span>
+        </div>
+      </div>
+    </section>
+  `).join('');
+})();
+</script>
+</body>
+</html>

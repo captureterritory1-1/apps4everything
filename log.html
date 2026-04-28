@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>builder log · apps for everything</title>
+<meta name="description" content="What got built, what broke, what shipped — in order. A raw build log from a one-person studio shipping 5 apps in 10 days."/>
+<meta property="og:title" content="builder log · apps for everything"/>
+<meta property="og:description" content="What got built, what broke, what shipped — in order. 5 apps, 10 days, 1 builder."/>
+<meta property="og:url" content="https://appsforeverything.co/log"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://appsforeverything.co/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="builder log · apps for everything"/>
+<meta name="twitter:description" content="What got built, what broke, what shipped — in order. 5 apps, 10 days, 1 builder."/>
+<meta name="twitter:image" content="https://appsforeverything.co/og-image.png"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="site/site.css"/>
+
+<style>
+.log-hero {
+  padding: 100px 32px 60px;
+  border-bottom: 1.5px solid var(--fg);
+  position: relative;
+  overflow: hidden;
+}
+.log-hero h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(72px, 14vw, 220px);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+}
+.log-hero h1 em { font-style: normal; background: var(--hl); color: #0F1418; padding: 0 0.08em; }
+.log-hero .sub {
+  font-family: var(--mono);
+  margin-top: 28px;
+  font-size: 14px;
+  max-width: 60ch;
+  line-height: 1.6;
+}
+
+.log-stream {
+  padding: 80px 32px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.log-side {
+  position: sticky;
+  top: 80px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.log-side .h {
+  font-size: 11px;
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+.log-side .filter {
+  display: block;
+  padding: 6px 0;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.log-side .filter:hover, .log-side .filter.active {
+  opacity: 1; color: var(--fg);
+}
+.log-side .filter.active::before { content: '> '; color: var(--hl); background: var(--fg); padding: 0 4px; margin-right: 6px; }
+
+.log-stream-list {
+  display: flex; flex-direction: column;
+}
+.log-entry {
+  border: 1.5px solid var(--fg);
+  margin-bottom: -1.5px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 32px;
+  background: var(--bg);
+  position: relative;
+  transition: background 0.18s, color 0.18s;
+}
+.log-entry:hover { background: var(--fg); color: var(--bg); }
+.log-entry:hover .entry-tag { border-color: var(--bg); }
+.log-entry .day-block {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.log-entry .day-block .date {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+  opacity: 0.55;
+  display: block;
+}
+.log-entry .body {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.log-entry .body h3 {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.log-entry .body p { max-width: 60ch; }
+.log-entry .meta-row {
+  margin-top: 16px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.entry-tag {
+  border: 1.5px solid var(--fg);
+  padding: 4px 10px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.timeline-end {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1.5px dashed var(--fg);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0.6;
+}
+
+@media (max-width: 1100px) {
+  .log-stream { grid-template-columns: 1fr; }
+  .log-side { position: static; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span class="dot"></span>
+    apps for everything<span class="blink"></span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="apps.html">Apps</a>
+    <a class="nav-link active" href="log.html">Log</a>
+  </div>
+  <div class="nav-meta">
+    <span><span class="live-dot"></span>shipping</span>
+    <span data-utc-clock>00:00:00 UTC</span>
+  </div>
+</nav>
+
+<main class="page">
+
+  <section class="log-hero">
+    <h1 style="font-family: 'JetBrains Mono'">the <em style="font-family: 'JetBrains Mono'">log</em>.</h1>
+    <p class="sub">// what got built, what broke, what shipped — in order. updated whenever something interesting happens. no roadmap, no eta, no marketing voice.</p>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-track fast">
+      <span class="marquee-item">tail -f /var/log/builder.log <span class="x">×</span></span>
+      <span class="marquee-item">commit · push · ship · repeat <span class="x">×</span></span>
+      <span class="marquee-item">10 days · 5 apps · 1 builder <span class="x">×</span></span>
+      <span class="marquee-item">tail -f /var/log/builder.log <span class="x">×</span></span>
+      <span class="marquee-item">commit · push · ship · repeat <span class="x">×</span></span>
+      <span class="marquee-item">10 days · 5 apps · 1 builder <span class="x">×</span></span>
+      <span class="marquee-item">tail -f /var/log/builder.log <span class="x">×</span></span>
+      <span class="marquee-item">commit · push · ship · repeat <span class="x">×</span></span>
+      <span class="marquee-item">10 days · 5 apps · 1 builder <span class="x">×</span></span>
+    </div>
+  </div>
+
+  <section class="log-stream">
+    <aside class="log-side">
+      <div class="h">// filter</div>
+      <a class="filter active" data-filter="all">all entries</a>
+      <a class="filter" data-filter="ship">ship</a>
+      <a class="filter" data-filter="build">build</a>
+      <a class="filter" data-filter="design">design</a>
+      <a class="filter" data-filter="ai">ai</a>
+      <a class="filter" data-filter="note">notes</a>
+
+      <div class="h" style="margin-top:32px">// rss</div>
+      <a class="filter" href="#">subscribe ↗</a>
+      <a class="filter" href="#">via email ↗</a>
+    </aside>
+
+    <div class="log-stream-list" id="log-stream-list"></div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-col">
+      <h4>// studio</h4>
+      <a href="index.html">Home</a>
+      <a href="apps.html">Apps</a>
+      <a href="log.html">Builder log</a>
+    </div>
+    <div class="foot-col">
+      <h4>// follow</h4>
+      <a href="https://www.instagram.com/apps4everything?igsh=eWd5OXFvZ3lxbHJh" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="#">X / twitter ↗</a>
+      <a href="#">RSS ↗</a>
+    </div>
+    <div class="foot-col" style="text-align:right">
+      <h4>// contact</h4>
+      <a href="mailto:hi@appsforeverything.co">hi@appsforeverything.co</a>
+      <span style="opacity:0.5">© 2026 — apps for everything</span>
+    </div>
+  </footer>
+</main>
+
+<script src="site/site.js"></script>
+<script>
+const list = document.getElementById('log-stream-list');
+function render(filter) {
+  const data = filter === 'all' ? LOG_ENTRIES : LOG_ENTRIES.filter(e => e.tags.includes(filter));
+  list.innerHTML = data.map(e => `
+    <article class="log-entry">
+      <div class="day-block">
+        ${e.day}
+        <span class="date">${e.date}</span>
+      </div>
+      <div class="body">
+        <h3>${e.title}</h3>
+        <p>${e.body}</p>
+        <div class="meta-row">
+          ${e.tags.map(t => `<span class="entry-tag">${t}</span>`).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('') + `<div class="timeline-end">// end of log · ${data.length} entries</div>`;
+}
+render('all');
+
+document.querySelectorAll('.filter[data-filter]').forEach(f => {
+  f.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+    f.classList.add('active');
+    render(f.dataset.filter);
+  });
+});
+</script>
+</body>
+</html>
