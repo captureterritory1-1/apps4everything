@@ -76,7 +76,8 @@ window.APPS = [
     accent: ['stock', 'expiry', 'restock'],
     stack: ['Swift', 'Vision OCR', 'CloudKit'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/the-pantry/id6761057466',  },
+    appstore: 'https://apps.apple.com/in/app/the-pantry/id6761057466',
+    preview: 'assets/previews/pantry-preview.jpg',  },
   {
     num: '03', name: 'cashflow', tag: 'finance · split-pay',
     logo: 'assets/logos/cashflow-logo.png',
@@ -86,7 +87,8 @@ window.APPS = [
     accent: ['track', 'split', 'settle'],
     stack: ['Flutter', 'Plaid', 'Firebase'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/cashflow-1-0/id6761311662',  },
+    appstore: 'https://apps.apple.com/in/app/cashflow-1-0/id6761311662',
+    preview: 'assets/previews/cashflow-preview.jpg',  },
   {
     num: '04', name: 'yeni', tag: 'learning · daily',
     logo: 'assets/logos/yeni-logo.png',
@@ -96,7 +98,8 @@ window.APPS = [
     accent: ['daily', 'tiny', 'compound'],
     stack: ['Next.js', 'OpenAI', 'Supabase'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/yeni-something-new-everyday/id6761651271',  },
+    appstore: 'https://apps.apple.com/in/app/yeni-something-new-everyday/id6761651271',
+    preview: 'assets/previews/yeni-preview.jpg',  },
   {
     num: '05', name: 'jain.dham', tag: 'spiritual · ai',
     logo: 'assets/logos/jaindham-logo.png',
@@ -106,7 +109,8 @@ window.APPS = [
     accent: ['darshan', 'pray', 'discover'],
     stack: ['React Native', 'GPT-4', 'Mapbox'],
     url: '#',
-    appstore: 'https://apps.apple.com/in/app/jaindham/id6762510686',  },
+    appstore: 'https://apps.apple.com/in/app/jaindham/id6762510686',
+    preview: 'assets/previews/jaindham-preview.jpg',  },
 ];
 
 // Builder log entries (shared)
