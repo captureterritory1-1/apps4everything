@@ -64,7 +64,7 @@ window.APPS = [
     accent: ['run', 'claim', 'earn'],
     stack: ['React Native', 'Mapbox', 'Postgres'],
     url: '#',
-    appstore: '#', playstore: '#',
+    appstore: 'https://apps.apple.com/in/app/capture-territory/id6760887152', playstore: '#',
   },
   {
     num: '02', name: 'the.pantry', tag: 'kitchen · ai',
