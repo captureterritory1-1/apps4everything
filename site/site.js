@@ -65,6 +65,7 @@ window.APPS = [
     stack: ['React Native', 'Mapbox', 'Postgres'],
     url: 'https://captureterritory.com',
     appstore: 'https://apps.apple.com/in/app/capture-territory/id6760887152',
+    preview: 'assets/previews/capture-preview.jpeg',
   },
   {
     num: '02', name: 'the.pantry', tag: 'kitchen · ai',
