@@ -63,7 +63,7 @@ window.APPS = [
     short: 'Run. Claim turf. Earn rewards.',
     accent: ['run', 'claim', 'earn'],
     stack: ['React Native', 'Mapbox', 'Postgres'],
-    url: '#',
+    url: 'https://captureterritory.com',
     appstore: 'https://apps.apple.com/in/app/capture-territory/id6760887152',
   },
   {

@@ -350,7 +350,7 @@
         </div>
         <div class="ctas">
           <a href="${a.appstore}" class="btn primary">↓ App Store</a>
-          <a href="${a.url}" class="btn">visit site →</a>
+          ${a.url !== '#' ? `<a href="${a.url}" class="btn" target="_blank" rel="noopener">visit site →</a>` : ''}
         </div>
         <div class="legend-row">
           <span>v.1.0</span>
