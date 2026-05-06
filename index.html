@@ -236,15 +236,26 @@
 
 @media (max-width: 640px) {
   .hero-meta-row { display: none; }
+  .hero { padding: 72px 20px 32px; }
   .hero-stack { font-size: clamp(72px, 18vw, 96px); margin: 24px 0; }
+  .hero-bottom { grid-template-columns: 1fr; gap: 0; align-items: start; }
+  .hero-bottom .col { padding: 16px 0; border-top: 1.5px solid var(--fg-faint); }
+  .hero-bottom .col:first-child { border-top: none; padding-top: 0; }
+  .hero-bottom .col p { max-width: none; }
+  .hero-bottom .ctas { justify-content: flex-start; padding-top: 0; }
+  .counters { grid-template-columns: repeat(2, 1fr); }
+  .counter:nth-child(2) { border-right: none; }
+  .counter:nth-child(n+3) { border-top: 1.5px solid var(--fg); }
   .counter { padding: 18px 14px; }
   .counter .num { font-size: 52px; }
   .app-card { min-height: auto; padding: 18px; gap: 14px; }
   .app-card-name { font-size: 28px; }
+  .log-row { grid-template-columns: 60px 1fr; }
+  .log-row .date, .log-row .arrow { display: none; }
+  .log-row .day { font-size: 22px; }
   .cta-strip { padding: 40px 20px; }
   .cta-strip h2 { font-size: clamp(40px, 10vw, 56px); }
   .cta-strip .ctas { flex-direction: column; align-items: center; gap: 10px; }
-  .log-row .day { font-size: 22px; }
 }
 
 @media (max-width: 480px) {

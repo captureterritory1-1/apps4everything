@@ -277,14 +277,6 @@ a[href="#"] {
   .nav { padding: 14px 20px; }
   .nav-brand { font-size: 12px; }
   .nav-brand .dot { width: 8px; height: 8px; }
-  .hero { padding: 80px 20px 40px; }
-  .hero-bottom { grid-template-columns: 1fr; gap: 20px; }
-  .hero-bottom .ctas { justify-content: flex-start; }
-  .counters { grid-template-columns: repeat(2, 1fr); }
-  .counter:nth-child(2) { border-right: none; }
-  .counter:nth-child(n+3) { border-top: 1.5px solid var(--fg); }
-  .log-row { grid-template-columns: 60px 1fr; }
-  .log-row .date, .log-row .arrow { display: none; }
   .foot { grid-template-columns: 1fr; gap: 20px; }
   .foot-col:last-child { text-align: left !important; }
   .marquee-track { gap: 20px; font-size: 12px; }
