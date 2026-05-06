@@ -225,6 +225,35 @@
   .app-card { border-bottom: 1.5px solid var(--fg); }
 }
 
+@media (max-width: 768px) {
+  .hero { padding: 80px 20px 32px; }
+  .counter { padding: 20px 16px; }
+  .counter .num { font-size: 60px; }
+  .apps-section { padding: 48px 20px; }
+  .log-section { padding: 48px 20px; }
+  .cta-strip { padding: 48px 20px; }
+}
+
+@media (max-width: 640px) {
+  .hero-meta-row { display: none; }
+  .hero-stack { font-size: clamp(72px, 18vw, 96px); margin: 24px 0; }
+  .counter { padding: 18px 14px; }
+  .counter .num { font-size: 52px; }
+  .app-card { min-height: auto; padding: 18px; gap: 14px; }
+  .app-card-name { font-size: 28px; }
+  .cta-strip { padding: 40px 20px; }
+  .cta-strip h2 { font-size: clamp(40px, 10vw, 56px); }
+  .cta-strip .ctas { flex-direction: column; align-items: center; gap: 10px; }
+  .log-row .day { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 72px 16px 28px; }
+  .hero-stack { font-size: clamp(60px, 16vw, 80px); }
+  .apps-grid { grid-template-columns: 1fr; }
+  .app-card { padding: 14px; border-right: none; }
+}
+
 /* ── Log preview ──────────────────────────────────────── */
 .log-section {
   padding: 80px 32px;

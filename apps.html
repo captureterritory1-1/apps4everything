@@ -236,6 +236,53 @@
   .app-row { grid-template-columns: 1fr; gap: 32px; }
   .app-row .col-left { position: static; }
 }
+
+@media (max-width: 768px) {
+  .app-row .col-right .device {
+    width: 55vw;
+    max-width: 280px;
+    margin: 0 auto 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .apps-hero { padding: 72px 20px 32px; }
+  .apps-hero h1 { font-size: clamp(52px, 13vw, 80px); }
+  .apps-hero .meta { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+  .apps-hero .meta .v { font-size: 28px; }
+
+  .app-row { padding: 40px 20px; gap: 24px; }
+
+  /* reorder: identity → phone + CTA → readme */
+  .app-row .col-left { order: 1; }
+  .app-row .col-right { order: 2; }
+  .app-row .col-mid  { order: 3; }
+
+  .app-row .logo-slot { width: 120px; height: 120px; }
+  .app-row .logo-slot img { width: 80px !important; height: 80px !important; }
+
+  .app-row .col-left .name { font-size: 36px; }
+  .app-row .col-left .tagline { font-size: 11px; }
+
+  .app-row .col-mid .short { font-size: 36px; margin-bottom: 20px; }
+  .readme-body { padding: 18px; font-size: 13px; }
+
+  .app-row .col-right .device {
+    width: 65vw;
+    max-width: 240px;
+    margin: 0 auto 14px;
+  }
+  .app-row .col-right .ctas { flex-direction: column; }
+  .app-row .col-right .ctas .btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .apps-hero h1 { font-size: clamp(44px, 12vw, 64px); }
+  .app-row { padding: 32px 16px; }
+  .app-row .col-left .name { font-size: 30px; }
+  .app-row .col-mid .short { font-size: 30px; }
+  .app-row .col-right .device { width: 70vw; max-width: 220px; }
+}
 </style>
 </head>
 <body>
